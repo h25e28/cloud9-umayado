@@ -1,0 +1,20 @@
+<div class="main top-main">
+  <div class="top-message">
+    <h2>デスクトップをきれいに</h2>
+    <p>チャットアプリをUmayadoで管理しよう！</p>
+    <div class="container">
+      <div class="row">
+        <% if logged_in? %>
+        <div class="box1">
+          <a href="/select">Umayadoをはじめる</a>
+        </div>
+        <% else %>
+        <ul class = "top-log">
+          <li><a href="/users/new">Sign in</a></li>
+          <li><a href="/login">Log in</a></li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

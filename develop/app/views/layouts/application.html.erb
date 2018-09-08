@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Develop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="/">Umayado</a>
+      </div>
+      <ul class="header-menus">
+        <% if logged_in? %>
+        <li>
+          <%= link_to logout_path, method: :delete do %>
+          ログアウト
+        <% end %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to login_path do %>
+        ログイン
+        <% end %>
+        </li>
+        <% end %>
+        <li>
+          <a href="/about">Umayadoとは</a>
+        </li>
+      </ul>
+    </header>
+    
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+    <% if flash[:alert] %>
+    <div class="alert alert-danger">
+    <%= flash[:alert] %>
+    </div>
+    <% end %>
+    
+    <%= yield %>
+  </body>
+</html>
